@@ -1,4 +1,4 @@
-# Navigation in React
+# Redux
 
 ## Your task
 
