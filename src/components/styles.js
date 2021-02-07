@@ -11,19 +11,28 @@ export const AppWrapper = styled.div`
   color: white;
 `;
 
-export const TagWrapper = styled.div`
+export const ZooWrapper = styled.div`
+  display: flex;
+  width: 700px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: -20px;
+`;
+
+export const AnimalWrapper = styled.div`
+  width: 200px;
+  height: 200px;
+
   display: flex;
   align-items: center;
-
-  width: 500px;
-  height: 80px;
-  border-radius: 300px;
-  padding: 0px 25px;
-  margin-bottom: 25px;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
 
   cursor: pointer;
   user-select: none;
 
+  border-radius: 300px;
   background-color: rgba(0, 0, 0, 0.4);
 
   &:hover {
@@ -32,27 +41,55 @@ export const TagWrapper = styled.div`
 `;
 
 export const Emoji = styled.span`
-  margin-right: 20px;
-  font-size: 1.6em;
+  font-size: 2em;
 `;
 
-export const Name = styled.span`
-  flex-grow: 1;
-  font-size: 1.6em;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9); ;
+export const AnimalName = styled.span`
+  font-weight: bold;
+  font-size: 1em;
 `;
 
-export const GoToProfile = styled.span`
-  font-size: 0.8em;
-  user-select: none;
-  color: rgba(255, 255, 255, 0.3);
+export const ModalBackground = styled.div`
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 `;
 
-export const ButtonsWrapper = styled.div`
+export const ModalContent = styled.div`
+  z-index: 3;
+  position: absolute;
+  translate: (-50%, -50%);
+`;
+
+export const NewAnimalWrapper = styled.div`
+  width: 500px;
+  min-height: 200px;
+  background-color: white;
+  color: ${(props) => props.theme.black};
+  padding: 50px;
+  border-radius: 50px;
+`;
+
+export const CageWrapper = styled.div`
+  white-space: pre-wrap;
+  width: 700px;
+  min-height: 200px;
+  background-color: #484724;
+  padding: 25px;
+  border-radius: 50px;
+  text-align: center;
+`;
+
+export const Cage = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 50vw;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Button = styled.button`
@@ -80,4 +117,16 @@ export const Button = styled.button`
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Input = styled.input`
+  font-size: 1.2em;
+  padding: 0.5em;
+  border-radius: 3px;
+  margin-bottom: 0.5em;
 `;

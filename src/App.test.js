@@ -21,131 +21,86 @@
  *
  */
 
-import { fireEvent, render, screen } from "@testing-library/react";
-import { MemoryRouter, Route } from "react-router";
+import { render, fireEvent, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 import App from "./App";
-import instructors from "./data";
+import reducer from "./store/reducer";
+import { createStore } from "redux";
 
-instructors[3] = {
-  name: "Nikita",
-  emoji: "👽",
-  slug: "nikita",
-  github: "cheloveq",
-  description: "Nikita is a very funky guy!",
-};
+const store = createStore(reducer);
 
-const [hamza, laila, hasan, nikita] = instructors;
-
-describe("Starting from empty route", () => {
-  let testLocation;
-  window.open = jest.fn();
+describe("the app", () => {
+  let container = null;
 
   beforeEach(() => {
-    render(
-      <MemoryRouter>
-        <App instructors={instructors} />
-        <Route
-          path="*"
-          render={({ history, location }) => {
-            testLocation = location;
-            return null;
-          }}
-        />
-      </MemoryRouter>
+    const renderedApp = render(
+      <>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </>
     );
 
-    expect(testLocation.pathname).toEqual("/");
+    container = renderedApp.container;
   });
 
-  test("clicking a tag navigates to instructor slug page with correct data", () => {
-    fireEvent.click(screen.queryByText(nikita.name));
-    expect(testLocation.pathname).toEqual(`/instructors/${nikita.slug}`);
-    expect(screen.queryByText(nikita.description)).toBeInTheDocument();
-    expect(screen.queryByText(hasan.description)).not.toBeInTheDocument();
-
-    fireEvent.click(screen.queryByText("github", { exact: false }));
-    expect(window.open).toHaveBeenCalledWith(
-      `https://github.com/${nikita.github}`
-    );
+  it("renders correctly", () => {
+    expect(container).toMatchSnapshot();
   });
 
-  test("clicking the 'go back home' button on the profile goes back to the home page", () => {
-    fireEvent.click(screen.queryByText(hamza.name));
-    expect(testLocation.pathname).toEqual(`/instructors/${hamza.slug}`);
+  it("allows viewing an animal cage by clicking on it", () => {
+    fireEvent.click(screen.queryByText("🦍"));
 
-    fireEvent.click(screen.queryByText("home", { exact: false }));
-    expect(testLocation.pathname).toEqual("/");
-  });
-});
-
-describe("Starting from", () => {
-  let testLocation;
-
-  describe(`/instructors/${hasan.slug}`, () => {
-    beforeAll(() => {
-      render(
-        <MemoryRouter initialEntries={[`/instructors/${hasan.slug}`]}>
-          <App />
-          <Route
-            path="*"
-            render={({ history, location }) => {
-              testLocation = location;
-              return null;
-            }}
-          />
-        </MemoryRouter>
-      );
-
-      expect(testLocation.pathname).toEqual(`/instructors/${hasan.slug}`);
-    });
-
-    test("it loads Hasan's profile", () => {
-      expect(screen.queryByText(hasan.description)).toBeInTheDocument();
-      expect(screen.queryByText(laila.description)).not.toBeInTheDocument();
-
-      fireEvent.click(screen.queryByText("github", { exact: false }));
-      expect(window.open).toHaveBeenCalledWith(
-        `https://github.com/${hasan.github}`
-      );
-    });
+    expect(container).toMatchSnapshot();
   });
 
-  describe("the invalid URL", () => {
-    test("/users/hasan it redirects to the /404 route", () => {
-      render(
-        <MemoryRouter initialEntries={["/users/hasan"]}>
-          <App />
-          <Route
-            path="*"
-            render={({ location }) => {
-              testLocation = location;
-              return null;
-            }}
-          />
-        </MemoryRouter>
-      );
+  it("allows going back to the zoo after viewing a cage", () => {
+    fireEvent.click(screen.queryByText("🦍"));
 
-      expect(testLocation.pathname).toEqual(`/404`);
-    });
+    expect(screen.queryByText("Back to Zoo")).toBeInTheDocument();
+    fireEvent.click(screen.queryByText("Back to Zoo"));
 
-    test("/random we can navigate back home from the 404 page", () => {
-      render(
-        <MemoryRouter initialEntries={["/random"]}>
-          <App />
-          <Route
-            path="*"
-            render={({ location }) => {
-              testLocation = location;
-              return null;
-            }}
-          />
-        </MemoryRouter>
-      );
+    expect(screen.queryByText("Back to Zoo")).not.toBeInTheDocument();
+    expect(container).toMatchSnapshot();
+  });
 
-      expect(testLocation.pathname).toEqual(`/404`);
+  it("allows adding a new animal", () => {
+    fireEvent.click(screen.queryByText("➕"));
 
-      fireEvent.click(screen.queryByText("home", { exact: false }));
-      expect(testLocation.pathname).toEqual("/");
-    });
+    expect(screen.queryByText("Back to Zoo")).toBeInTheDocument();
+    expect(screen.queryByText("Add Animal")).toBeInTheDocument();
+
+    const nameInput = screen.getByPlaceholderText("Duck");
+    const emojiInput = screen.getByPlaceholderText("🦆");
+
+    fireEvent.change(nameInput, { target: { value: "Laila" } });
+    fireEvent.change(emojiInput, { target: { value: "🐥" } });
+
+    fireEvent.click(screen.queryByText("Add Animal"));
+
+    expect(screen.queryByText("Back to Zoo")).not.toBeInTheDocument();
+    expect(screen.queryByText("Add Animal")).not.toBeInTheDocument();
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("allows cancelling adding a new animal", () => {
+    fireEvent.click(screen.queryByText("➕"));
+
+    expect(screen.queryByText("Back to Zoo")).toBeInTheDocument();
+    expect(screen.queryByText("Add Animal")).toBeInTheDocument();
+
+    const nameInput = screen.getByPlaceholderText("Duck");
+    const emojiInput = screen.getByPlaceholderText("🦆");
+
+    fireEvent.change(nameInput, { target: { value: "Khaled" } });
+    fireEvent.change(emojiInput, { target: { value: "🥬" } });
+
+    fireEvent.click(screen.queryByText("Back to Zoo"));
+
+    expect(screen.queryByText("Back to Zoo")).not.toBeInTheDocument();
+    expect(screen.queryByText("Add Animal")).not.toBeInTheDocument();
+
+    expect(container).toMatchSnapshot();
   });
 });

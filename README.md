@@ -2,12 +2,13 @@
 
 ## Your task
 
-In this assessment you are presented with a SPA that uses a homemade router to navigate between pages.
-The homemade router is good for moving around, but it's not very flexible, and it doesn't rely on URLs for navigation.
+Coded's Zoo is a digital zoo where visitors can view animals.
 
-Using `react-router` you are expected to introduce a more robust routing solution to the application.
+Currently, the whole zoo relies on an initial state inside the `index.js` file that is passed down between components as a prop.
 
-Stick with the route names already present in the app. For the instructor profile route, use the slug of the instructor as a parameter.
+Use Redux to move this to a global state structure using Redux's `provider` and the `reducer.js` file to add the logic.
+
+The website is already fully functional, adding Redux should not change any of the website's functionality, just the code.
 
 Good luck!
 
@@ -15,18 +16,14 @@ Good luck!
 
 ## Why?
 
-We have learnt that traditional websites are composed of multiple HTML files, each representing a single page.
-In those traditional websites each URL you type is essentially a path to an HTML file, which might in turn load other files like CSS sheets and JS scripts.
+While in this zoo exmaple it might feel that adding Redux made things more complicated, imagine if we wanted to add the ability to watch
+a specific gorilla in the gorillas cage. Imagine we could click on a single gorilla there and we could feed it and it would grow.
 
-We also learnt that a modern React app works differently.
-A React app is composed of single HTML file that is manipulated by maaany JS files.
-We call this composition Single Page Applications (SPA).
+Now, now, don't get all dreamy about growing gorillas, but focus on the implementation details. If clicking on a specific
+gorilla opened up a new modal, which had inisde it that singular gorilla, we would have needed to pass the functions that set the cage all the way from `App.js` to `ZooAnimals.js` to `AnimalCage.js` to the hypothetical `SpecificAnimalView.js`.
 
-As we explained earlier, URLs represent the path to HTML files,
-but since we only have a single HTML file in a SPA, by default they run with a single URL.
-For example, everything we have worked on so far never moved from `localhost:3000`.
+Redux eliminates this. It makes the state a big floating global thing that any component could easily just "plug" into to read, edit, and watch. It's magical!
 
-But people love URLs! They allow us to share specific webpages easily.
-If you like something on an online store, you wanna share that specific product, not the home page.
+Besides this magic, Redux gives us the benefit of easier debugging, more straighforward testing, and generally more robust code.
 
-Just like manipulating a single HTML page to display many different things, React can also manipulate the URL bar of the browser!
+Despite all of that, Redux is not always needed. If your app is small and doesn't have a very complicated state (like our zoo example actually) Redux is not really that useful. You can also consider using MobX for state management in React.

@@ -1,54 +1,32 @@
+import AnimalCage from "./components/AnimalCage";
 import { AppWrapper } from "./components/styles";
-import Home from "./components/Home";
-import InstructorProfile from "./components/InstructorProfile";
-import NotFound from "./components/NotFound";
+import ZooAnimals from "./components/ZooAnimals";
+import NewAnimalForm from "./components/NewAnimalForm";
 import { useState } from "react";
 
-const App = ({ instructors }) => {
-  const [currentPage, setCurrentPage] = useState("/");
+const App = ({ state }) => {
+  const [cageAnimal, setCageAnimal] = useState(false);
+  const [showNewAnimalForm, setShowNewAnimalForm] = useState(false);
 
-  const homemadeRouter = () => {
-    switch (currentPage) {
-      case "/":
-        return <Home instructors={instructors} goTo={setCurrentPage} />;
-
-      case "/instructors/hamza":
-        return (
-          <InstructorProfile
-            instructors={instructors}
-            instructorSlug="hamza"
-            goTo={setCurrentPage}
-          />
-        );
-
-      case "/instructors/laila":
-        return (
-          <InstructorProfile
-            instructors={instructors}
-            instructorSlug="laila"
-            goTo={setCurrentPage}
-          />
-        );
-
-      case "/instructors/hasan":
-        return (
-          <InstructorProfile
-            instructors={instructors}
-            instructorSlug="hasan"
-            goTo={setCurrentPage}
-          />
-        );
-
-      case "/404":
-        return <NotFound goTo={setCurrentPage} />;
-
-      default:
-        setCurrentPage("/404");
-        break;
-    }
-  };
-
-  return <AppWrapper>{homemadeRouter()}</AppWrapper>;
+  return (
+    <AppWrapper>
+      <h2>Welcome to Coded's Zoo!</h2>
+      <ZooAnimals
+        animals={state.animals}
+        setCageAnimal={setCageAnimal}
+        setShowNewAnimalForm={setShowNewAnimalForm}
+      />
+      {cageAnimal ? (
+        <AnimalCage setCageAnimal={setCageAnimal} animal={cageAnimal} />
+      ) : null}
+      {showNewAnimalForm ? (
+        <NewAnimalForm
+          state={state}
+          setShowNewAnimalForm={setShowNewAnimalForm}
+        />
+      ) : null}
+    </AppWrapper>
+  );
 };
 
 export default App;

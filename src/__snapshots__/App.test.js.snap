@@ -1,0 +1,429 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the app allows adding a new animal 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ gnLLvF"
+  >
+    <h2>
+      Welcome to Coded's Zoo!
+    </h2>
+    <div
+      class="sc-gsTCUz hBkqdZ"
+    >
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐅
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Tiger
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐘
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Elephant
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🦍
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Gorilla
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐥
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Laila
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          ➕
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Add
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`the app allows cancelling adding a new animal 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ gnLLvF"
+  >
+    <h2>
+      Welcome to Coded's Zoo!
+    </h2>
+    <div
+      class="sc-gsTCUz hBkqdZ"
+    >
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐅
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Tiger
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐘
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Elephant
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🦍
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Gorilla
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐥
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Laila
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          ➕
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Add
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`the app allows going back to the zoo after viewing a cage 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ gnLLvF"
+  >
+    <h2>
+      Welcome to Coded's Zoo!
+    </h2>
+    <div
+      class="sc-gsTCUz hBkqdZ"
+    >
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐅
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Tiger
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐘
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Elephant
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🦍
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Gorilla
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          ➕
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Add
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`the app allows viewing an animal cage by clicking on it 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ gnLLvF"
+  >
+    <h2>
+      Welcome to Coded's Zoo!
+    </h2>
+    <div
+      class="sc-gsTCUz hBkqdZ"
+    >
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐅
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Tiger
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐘
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Elephant
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🦍
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Gorilla
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          ➕
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Add
+        </span>
+      </div>
+    </div>
+    <div
+      class="sc-jSgupP djmqUN"
+    />
+    <div
+      class="sc-gKsewC fzKzaE"
+    >
+      <div
+        class="sc-fubCfw hynxmF"
+      >
+        <h1>
+          Gorilla
+          s
+        </h1>
+        <h3>
+          🌴   🌴🦍 🦍       🌴🦍
+        </h3>
+        <button
+          class="sc-jrAGrp aYoQV"
+        >
+          Back to Zoo
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`the app renders correctly 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ gnLLvF"
+  >
+    <h2>
+      Welcome to Coded's Zoo!
+    </h2>
+    <div
+      class="sc-gsTCUz hBkqdZ"
+    >
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐅
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Tiger
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🐘
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Elephant
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          🦍
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Gorilla
+          s
+        </span>
+      </div>
+      <div
+        class="sc-dlfnbm kzmQxv"
+      >
+        <span
+          class="sc-hKgILt iLfdF"
+        >
+          ➕
+        </span>
+        <span
+          class="sc-eCssSg icklDl"
+        >
+          Add
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -2,7 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import instructors from "./data";
+
+const state = {
+  animals: [
+    {
+      name: "Tiger",
+      emoji: "🐅",
+    },
+    {
+      name: "Elephant",
+      emoji: "🐘",
+    },
+    {
+      name: "Gorilla",
+      emoji: "🦍",
+    },
+  ],
+  cageAnimal: null,
+  showCage: false,
+  showNewAnimalForm: false,
+};
 
 const theme = {
   black: "#282c34",
@@ -17,18 +36,13 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  a {
-    text-decoration: none;
-  }
 `;
-// I am giving <a> tags this property to avoid <Link> tags underlining stuff
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <App instructors={instructors} />
+      <App state={state} />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
